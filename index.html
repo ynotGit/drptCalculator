@@ -57,7 +57,7 @@
                 <div class="potentialRevenue"></div>
             </div>
             <div class="calculatorItem">
-                <button id="calculateButton">Calculate</button>
+                <button [type=button] id="calculateButton">Calculate</button>
             </div>
         </div>
     </div>
@@ -74,9 +74,7 @@
 
             let currentRevenue = patientPrice * patientCurrentTotalNumber;
 
-            outputCurrentRevenue.value = currentRevenue;
-
-            console.log(outputCurrentRevenue.value)
+            outputCurrentRevenue.innerHTML = currentRevenue;
         };
 
         let calculateButton = document.getElementById("calculateButton");
