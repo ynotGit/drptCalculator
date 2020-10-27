@@ -37,20 +37,20 @@
         <div class="calculator">
             <div class="calculatorItem">
                 <label for="patientPrice">What You Currently Charge Patients:</label>
-                <input type="number" class="patientPrice" value="1">
+                <input type="number" oninput="calculateCurrentRevenue()" class="patientPrice" value="1">
             </div>
             <div class="calculatorItem">
                 <label for="patientCurrentTotalNumber">The Current Total Amount Of Patients You Currentlly Have:</label>
-                <input type="number" class="patientCurrentTotalNumber">
+                <input type="number" oninput="calculateCurrentRevenue()" class="patientCurrentTotalNumber">
+            </div>
+            <div class="calculatorItem">
+                <label for="currentRevenue">Current Revenue:</label>
+                <div class="currentRevenue"></div>
             </div>
             <div class="calculatorItem">
                 <label for="patientPotentialNumber">Using DRPT Strategy We Project Your Total Patients To Increase
                     To:</label>
                 <input type="number" class="patientPotentialNumber">
-            </div>
-            <div class="calculatorItem">
-                <label for="currentRevenue">Current Revenue:</label>
-                <div class="currentRevenue"></div>
             </div>
             <div class="calculatorItem">
                 <label for="potentialRevenue">Potential Revenue With DRPT Strategy:</label>
@@ -63,11 +63,8 @@
     </div>
 
     <script>
-        // let patientPotentialNumber = document.querySelector("patientPotentialNumber").value;
-        // let outputCurrentRevenue = document.querySelect("currentRevenue");
-        // let outputPotentialRevenue = document.querySelector("potentialRevenue");
-
-        let multiply = () => {
+        // Calculate Current Revenue
+        let calculateCurrentRevenue = () => {
             let patientPrice = document.querySelector(".patientPrice").value;
             let patientCurrentTotalNumber = document.querySelector(".patientCurrentTotalNumber").value;
             let outputCurrentRevenue = document.querySelector(".currentRevenue");
@@ -77,8 +74,20 @@
             outputCurrentRevenue.innerHTML = currentRevenue;
         };
 
-        let calculateButton = document.getElementById("calculateButton");
-        calculateButton.addEventListener("click", multiply);
+        // let calculateButton = document.getElementById("calculateButton");
+        // calculateButton.addEventListener("input", calculateCurrentRevenue);
+
+        // Calculate Potential Revenue
+
+        let calculatePotentialRevenue = () => {
+            let patientPrice = document.querySelector(".patientPrice").value;
+            let patientPotentialNumber = document.querySelector("patientPotentialNumber").value;
+            let outputPotentialRevenue = document.querySelector("potentialRevenue");
+
+            let potentialRevenue = patientPrice * patientPotentialNumber;
+
+            outputPotentialRevenue.innerHTML = potentialRevenue;
+        };
     </script>
 </body>
 
