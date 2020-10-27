@@ -41,8 +41,8 @@
                     class="patientPrice">
             </div>
             <div class="calculatorItem">
-                <label for="patientCurrentTotalNumber">The Current Total Amount Of Patients You Currentlly Have:</label>
-                <input type="number" oninput="calculateCurrentRevenue()" class="patientCurrentTotalNumber">
+                <label for="patientCurrentNumber">The Current Total Amount Of Patients You Currentlly Have:</label>
+                <input type="number" oninput="calculateCurrentRevenue()" class="patientCurrentNumber">
             </div>
             <div class="calculatorItem">
                 <label for="currentRevenue">Current Revenue:</label>
@@ -64,10 +64,10 @@
         // Calculate Current Revenue
         let calculateCurrentRevenue = () => {
             let patientPrice = document.querySelector(".patientPrice").value;
-            let patientCurrentTotalNumber = document.querySelector(".patientCurrentTotalNumber").value;
+            let patientCurrentNumber = document.querySelector(".patientCurrentNumber").value;
             let outputCurrentRevenue = document.querySelector(".currentRevenue");
 
-            let currentRevenue = patientPrice * patientCurrentTotalNumber;
+            let currentRevenue = patientPrice * patientCurrentNumber;
 
             outputCurrentRevenue.innerHTML = currentRevenue;
         };
@@ -82,6 +82,8 @@
 
             outputPotentialRevenue.innerHTML = potentialRevenue;
         };
+
+        //Comparsion
     </script>
 </body>
 
