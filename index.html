@@ -15,6 +15,13 @@
             box-sizing: border-box;
         }
 
+        label,
+        input {
+            margin: auto;
+            border: none;
+            padding: 10px 0;
+        }
+
         .calculatorContainer {
             padding: 0 10%;
             display: flex;
@@ -32,30 +39,30 @@
 </head>
 
 <body>
-
     <div class="calculatorContainer">
         <div class="calculator">
+            <h1>DRPT Calculator</h1>
             <div class="calculatorItem">
                 <label for="patientPrice">What You Currently Charge Patients:</label>
-                <input type="number" oninput="calculateCurrentRevenue(), calculatePotentialRevenue()"
-                    class="patientPrice">
+                <span>$</span>
+                <input oninput="calculateCurrentRevenue(), calculatePotentialRevenue()" class="patientPrice">
             </div>
             <div class="calculatorItem">
                 <label for="patientCurrentNumber">The Current Total Amount Of Patients You Currentlly Have:</label>
-                <input type="number" oninput="calculateCurrentRevenue()" class="patientCurrentNumber">
+                <input oninput="calculateCurrentRevenue()" class="patientCurrentNumber">
             </div>
             <div class="calculatorItem">
                 <label for="currentRevenue">Current Revenue:</label>
-                <div class="currentRevenue"></div>
+                <input class="currentRevenue">
             </div>
             <div class="calculatorItem">
                 <label for="patientPotentialNumber">Using DRPT Strategy We Project Your Total Patients To Increase
                     To:</label>
-                <input type="number" oninput="calculatePotentialRevenue()" class="patientPotentialNumber">
+                <input oninput="calculatePotentialRevenue()" class="patientPotentialNumber">
             </div>
             <div class="calculatorItem">
                 <label for="potentialRevenue">Potential Revenue With DRPT Strategy:</label>
-                <div class="potentialRevenue"></div>
+                <input class="potentialRevenue">
             </div>
         </div>
     </div>
@@ -69,7 +76,7 @@
 
             let currentRevenue = patientPrice * patientCurrentNumber;
 
-            outputCurrentRevenue.innerHTML = currentRevenue;
+            outputCurrentRevenue.value = currentRevenue;
         };
 
         // Calculate Potential Revenue
@@ -80,10 +87,8 @@
 
             let potentialRevenue = patientPrice * patientPotentialNumber;
 
-            outputPotentialRevenue.innerHTML = potentialRevenue;
+            outputPotentialRevenue.value = potentialRevenue;
         };
-
-        //Comparsion
     </script>
 </body>
 
